@@ -9,14 +9,15 @@
 	<script src="script.js"></script>
 </head>
 <body>
-	<h1 class="title">SIMULADOR DE PANELES SOLARES PARA EL APRENDIZAJE DE CORRIENTE ELÉCTRICA Y LA LEY DE OHM UTILIZANDO ENERGÍA SOLAR</h1>
+	<!-- <h1 class="title">SIMULADOR DE PANELES SOLARES PARA EL APRENDIZAJE DE CORRIENTE ELÉCTRICA Y LA LEY DE OHM UTILIZANDO ENERGÍA SOLAR</h1> -->
 	<div class="container">
 
 	<!-- mapa de los paneles solares start -->
 	<div class="map">
 		<!-- Aquí se mostrará el mapa o diagrama de los paneles solares -->
-		<!-- <br>&nbsp;&nbsp;&nbsp; -->
-		<div>
+
+		<!-- radiacion solar start -->
+		<div class="radiacion">
 			<label for="radiacion">Radiación solar <br> 
 			</label>
 			<div>
@@ -26,52 +27,39 @@
 							" 
 			type="text" id="radiacion-value" value="0" max="2000" min="0">kWh/m²
 		</div>
-		<input type="range" id="radiacion" min="0" max="2000" step="10" value="0">
+		<form>
+			<input type="range" id="radiacion" min="0" max="2000" step="10" value="0">
+		</form>
 		</div>
 		<div>
 			<img class="sun-img" id="sun-img" width="10%" src="static/sun.webp" alt="sun">
 		</div>
-		
-		<!-- <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 		<div>
 			<img class="flechas-img" id="flechas-img" width="8%" style="transform:rotate(-40deg);" src="static/flechitas.webp" alt="radiacion solar">
 		</div>
-		<!-- <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+		<!-- radiacion solar end -->
+
+
+		<!-- panel solar start -->
+		<div class="eficiencia-panel">
+			<div>
+				<label for="eficiencia">Eficiencia del panel</label>
+			</div>
+			<div>
+				<input style="	width: 35px;
+								text-align: center;
+								margin-right: 10px;
+								" 
+				type="text" id="eficiencia-value" value="0" max="100" min="0">%
+			</div>
+			<input type="range" id="eficiencia" min="0" max="100" step="1" value="0">
+		</div>
 		<div>
 			<img class="panel-img" id="panel-img" width="20%" src="static/paneles.webp" alt="paneles solares">
 		</div>
+		<!-- panel solar end -->
 	</div>
 	<!-- mapa de los paneles solares end -->
-
-	<!-- radiacion solar start -->
-	<div class="controls">
-		<label for="radiacion">Radiación solar <br> 
-		</label>
-		<br>
-	</div>
-	<div>
-		<input style="	width: 35px;
-						text-align: center;
-						margin-right: 10px;
-					 " 
-		type="text" id="radiacion-value" value="0" max="2000" min="0">kWh/m²
-	</div>
-	<input type="range" id="radiacion" min="0" max="2000" step="10" value="0">
-	<!-- radiacion solar end -->
-	
-	<!-- eficiencia del panel start -->
-	<div class="controls">
-		<label for="eficiencia">Eficiencia del panel</label>
-	</div>
-	<div>
-		<input style="	width: 35px;
-						text-align: center;
-						margin-right: 10px;
-						" 
-		type="text" id="eficiencia-value" value="0" max="100" min="0">%
-	</div>
-		<input type="range" id="eficiencia" min="0" max="100" step="1" value="0">
-	<!-- eficiencia del panel end -->
 
 		<div class="info">
 			<!-- Potencia producida por el panel solar -->
