@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simulador de Paneles Solares</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="icon" href="https://www.unipiloto.edu.co/wp-content/uploads/2013/11/favicon-upc-2017.png" type="image/x-icon">
+	<script src="script.js"></script>
+</head>
+<body>
+    <!-- radiacion start  -->
+    <div class="bloque_de_información_radiacion">
+        <label>Radiación solar<br></label>
+        <div>
+            <form>
+                <input class="input_numeros" type="number" id="radiacion_caja" value="0">kWh/m²
+            </form>
+        </div>
+    <form>
+        <input type="range" id="radiacion_barra" min="0" max="2000" step="10" value="0">
+    </form>
+    </div>
+    <!-- radiadion ending -->
+
+    <!-- Eficencia solar start -->
+    <div class="bloque_de_información_eficiencia_solar">
+        <label>Eficiencia del panel<br></label>
+        <div>
+            <form>
+                <input class="input_numeros" type="number" id="eficiencia_solar_caja" value="0">%
+            </form>
+        </div>
+    <form>
+        <input type="range" id="eficiencia_solar_barra" min="0" max="100" step="1" value="0">
+    </form>
+    </div>
+    <!-- Eficiencia solar end -->
+
+    <!-- Selector de voltaje de bateria start -->
+    <div class="bloque_de_información_selector_de_voltaje">
+        <label>Voltaje del regulador de la energía solar<br></label>
+        <div>
+            <form>
+                <input type="range" id="selector_de_voltaje_barra" min="0" max="29" step="1" value="0">
+            </form>
+        </div>
+    </div>
+
+    <div class="selector_de_voltaje_imagen_formulario">
+        <img class="regulador-img" src="./static/regulador.webp" alt="regulador de enegía solar">
+        <form>
+            <input class="caja_voltaje_input" type="number" id="selector_de_voltaje_caja" value="0">
+        </form>
+    </div>
+    <!-- Selector de voltaje de bateria end -->
+</body>
+</html>
