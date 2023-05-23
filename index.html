@@ -12,7 +12,7 @@
 <body>
     <!-- radiacion start  -->
     <div class="bloque_de_información_radiacion">
-        <label>Radiación solar<br></label>
+        <label class="text">Radiación solar<br></label>
         <div>
             <form>
                 <input class="input_numeros" type="number" id="radiacion_caja" value="0">kWh/m²
@@ -72,13 +72,59 @@
     </div>
     <!-- Selector de voltaje de bateria end -->
 
-    
+    <!-- Capacidad de carga de la bateria start -->
+    <div class="bloque_de_informacion_capacidad_de_bateria">
+        <label>Capacidad de la bateria<br></label>
+        <div>
+            <form>
+                <input class="input_numeros" type="number" id="capacidad_de_bateria_caja" value="50" step="1">Ah
+            </form>
+        </div>
+    <form>
+        <input type="range" id="capacidad_de_bateria_barra" min="50" max="200" step="1" value="50">
+    </form>
+    </div>
+    <!-- Capacidad de carga de la bateria end -->
 
-    <!-- Información producida por el panel solar start -->
+    <!-- tiempo de exposicion al sol start -->
+    <div class="bloque_de_informacion_tiempo_de_exposicion_al_sol">
+        <label>Tiempo de exposición al sol<br></label>
+        <div>
+            <form>
+                <input class="input_numeros" type="number" id="tiempo_de_exposicion_al_sol_caja" value="0" max="24" min="0" step="0.1">h
+            </form>
+        </div>
+        <form>
+            <input type="range" id="tiempo_de_exposicion_al_sol_barra" min="0" max="24" step="0.1" value="0">
+        </form>
+    </div>
+
+    <!-- Información start -->
 
     <div class="bloque_de_información_información_producida">
-        <label>Información producida por el panel solar<br></label>
-        <span>xd</span>
+        <label>Potencia eléctrica producida por un panel solar<br></label>
+        <hr class="hr">
+        <input disabled type="text" class="info_corriente_producida_panel_solar" id="info_corriente_producida_panel_solar" value="0.00 V">
     </div>
+
+    <div class="bloque_de_información_potencia_electrica_generada">
+        <label>Energía eléctrica generada por un panel solar<br></label>
+        <hr class="hr">
+        <input disabled type="text" class="info_potencia_electrica_generada_panel_solar"  id="info_potencia_electrica_generada_panel_solar" value="0.00 W">
+    </div>
+
+    <div class="bloque_de_informacion_tiempo_de_carga_bateria">
+        <label>Tiempo de carga de la bateria<br></label>
+        <hr class="hr">
+        <input disabled type="text" class="info_tiempo_de_carga_bateria" id="info_tiempo_de_carga_bateria" value="0.00 h">
+    </div>
+
+    <div class="bloque_de_informacion_capacidad_de_carga_bateria">
+        <label>Capacidad de carga de la bateria<br></label>
+        <hr class="hr">
+        <input disabled type="text" class="info_capacidad_de_carga_bateria" id="info_capacidad_de_carga_bateria" value="0.00 Ah">
+    </div>
+
+    <!-- Información end -->
 </body>
 </html>

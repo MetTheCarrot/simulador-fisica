@@ -44,33 +44,113 @@ document.addEventListener('DOMContentLoaded', () => {
     const voltaje_caja = document.getElementById('selector_de_voltaje_caja');
     const area_panel_solar_caja = document.getElementById('area_panel_solar_caja');
     const area_panel_solar_barra = document.getElementById('area_panel_solar_barra');
+    const capacidad_de_bateria_caja = document.getElementById('capacidad_de_bateria_caja');
+    const capacidad_de_bateria_barra = document.getElementById('capacidad_de_bateria_barra');
+    const tiempo_de_exposicion_al_sol_caja = document.getElementById('tiempo_de_exposicion_al_sol_caja');
+    const tiempo_de_exposicion_al_sol_barra = document.getElementById('tiempo_de_exposicion_al_sol_barra');
 //  Cajas y barras de entrada end
 
 // imagenes start
     const regulador_de_voltaje = document.getElementById('regulador-img');
     const panel_solar = document.getElementById('panel_solar_img');
 // imagenes end
-    
-    
+
+// Información start
+    const bloque_de_información_información_producida = document.getElementById('info_corriente_producida_panel_solar');
+    const bloque_de_información_potencia_electrica_generada = document.getElementById('info_potencia_electrica_generada_panel_solar');
+    const bloque_de_informacion_tiempo_de_carga_bateria = document.getElementById('info_tiempo_de_carga_bateria');
+    const bloque_de_informacion_capacidad_de_carga_bateria = document.getElementById('info_capacidad_de_carga_bateria');
+
     class Simulador {
         
         constructor(){
             this.radiacion = 0; // 0 - 2000 max
-            this.eficiencia_solar = 0; // 0 - 100 max
+            this.eficiencia_solar = 0.00; // 0 - 100 max
             this.voltaje = 0; // 0 - 29 max
             this.area_panel_solar = 1; // 1 - 1.7 max
+            this.capacidad_bateria = 50; // 50 - 200 max
+            this.tiempo_exposicion_sol = 0; // 0 - 24 max
+
+            // info
+            this.potencia_electrica_generada = 0;
+            this.energia_generada = 0;
+            this.tiempo_de_carga_bateria = 0; 
+            this.capacidad_carga_bateria = 0;
         }
-        
+
+        // Información start
+
+        update_all(){
+            this.potencia_electrica_generada_update();
+            this.tiempo_de_carga_bateria_update();
+            this.energia_generada_update();
+            this.tiempo_de_capacidad_bateria_update();
+        }
+
+        potencia_electrica_generada_update(){
+            const potencia_electrica_generada = (this.radiacion * this.eficiencia_solar * this.area_panel_solar).toFixed(2);
+            this.potencia_electrica_generada = potencia_electrica_generada;
+            bloque_de_información_información_producida.value = potencia_electrica_generada + " V";
+        }
+
+        energia_generada_update(){
+            const energia_generada = (this.potencia_electrica_generada * this.tiempo_exposicion_sol).toFixed(2);
+            this.energia_generada = energia_generada;
+            bloque_de_información_potencia_electrica_generada.value = energia_generada + " Vh";
+        }
+
+        tiempo_de_carga_bateria_update(){
+            const tiempo_de_carga_bateria = (this.capacidad_carga_bateria / this.potencia_electrica_generada).toFixed(2);
+            this.tiempo_de_carga_bateria = tiempo_de_carga_bateria;
+            bloque_de_informacion_tiempo_de_carga_bateria.value = tiempo_de_carga_bateria + " h";
+        }
+
+        tiempo_de_capacidad_bateria_update(){
+            const capacidad_carga_bateria = (this.capacidad_bateria * this.voltaje).toFixed(2);
+            this.capacidad_carga_bateria = capacidad_carga_bateria;
+            bloque_de_informacion_capacidad_de_carga_bateria.value = capacidad_carga_bateria + " Vh";
+        }
+
+        // tiempo exposición sol
+
+        tiempo_de_exposicion_al_sol_update_barra(){
+            tiempo_de_exposicion_al_sol_caja.value = tiempo_de_exposicion_al_sol_barra.value;
+            this.tiempo_exposicion_sol = tiempo_de_exposicion_al_sol_barra.value;
+            this.update_all();
+        }
+
+        tiempo_de_exposicion_al_sol_update_caja(){
+            plantilla_texto(tiempo_de_exposicion_al_sol_caja, tiempo_de_exposicion_al_sol_barra, 24);
+            this.tiempo_exposicion_sol = tiempo_de_exposicion_al_sol_caja.value;
+            this.update_all();
+        }
+
+        // capacidad 
+
+        capacidad_de_bateria_update_barra(){
+            capacidad_de_bateria_caja.value = capacidad_de_bateria_barra.value;
+            this.capacidad_bateria = capacidad_de_bateria_barra.value;
+            this.update_all();
+        }
+
+        capacidad_de_bateria_update_caja(){
+            plantilla_texto(capacidad_de_bateria_caja, capacidad_de_bateria_barra, 200);
+            this.capacidad_bateria = capacidad_de_bateria_caja.value;
+            this.update_all();
+        }
+
         // radiacion start
 
         radiacion_update_barra(){
             radiacion_caja.value = radiacion_barra.value;
             this.radiacion = radiacion_barra.value;
+            this.update_all();
         }
         
         radiacion_update_caja(){
             plantilla_texto(radiacion_caja, radiacion_barra, 2000);
             this.radiacion = radiacion_caja.value;
+            this.update_all();
         }
 
         // radiacion end
@@ -79,13 +159,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         eficiencia_solar_update_barra(){
             eficiencia_solar_caja.value = eficiencia_solar_barra.value;
-            this.eficiencia_solar = eficiencia_solar_barra.value;
+            this.eficiencia_solar = eficiencia_solar_barra.value / 100;
             this.eficiencia_solar_actualizar_imagen();
+            this.update_all();
         }
 
         eficiencia_solar_update_caja(){
             plantilla_texto(eficiencia_solar_caja, eficiencia_solar_barra, 100);
+            this.eficiencia_solar = eficiencia_solar_caja.value / 100;
             this.eficiencia_solar_actualizar_imagen();
+            this.update_all();
         }
 
         eficiencia_solar_actualizar_imagen(){
@@ -100,12 +183,14 @@ document.addEventListener('DOMContentLoaded', () => {
             area_panel_solar_caja.value = area_panel_solar_barra.value;
             this.area_panel_solar = area_panel_solar_barra.value;
             this.area_panel_solar_actualizar_imagen();
+            this.update_all();
         }
 
         area_panel_solar_update_caja(){
             plantilla_texto(area_panel_solar_caja, area_panel_solar_barra, 1.7);
             this.area_panel_solar = area_panel_solar_caja.value;
             this.area_panel_solar_actualizar_imagen();
+            this.update_all();
         }
 
         area_panel_solar_actualizar_imagen(){
@@ -120,11 +205,14 @@ document.addEventListener('DOMContentLoaded', () => {
             voltaje_caja.value = voltaje_barra.value;
             this.voltaje = voltaje_barra.value;
             this.voltaje_actualizar_imagen();
+            this.update_all();
         }
 
         voltaje_update_caja(){
             plantilla_texto(voltaje_caja, voltaje_barra, 29);
+            this.voltaje = voltaje_caja.value;
             this.voltaje_actualizar_imagen();
+            this.update_all();
         }
 
         voltaje_actualizar_imagen(){
@@ -149,5 +237,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     area_panel_solar_barra.addEventListener('input', instancia.area_panel_solar_update_barra.bind(instancia));
     area_panel_solar_caja.addEventListener('input', instancia.area_panel_solar_update_caja.bind(instancia));
+
+    capacidad_de_bateria_barra.addEventListener('input', instancia.capacidad_de_bateria_update_barra.bind(instancia));
+    capacidad_de_bateria_caja.addEventListener('input', instancia.capacidad_de_bateria_update_caja.bind(instancia));
+
+    tiempo_de_exposicion_al_sol_barra.addEventListener('input', instancia.tiempo_de_exposicion_al_sol_update_barra.bind(instancia));
+    tiempo_de_exposicion_al_sol_caja.addEventListener('input', instancia.tiempo_de_exposicion_al_sol_update_caja.bind(instancia));
 
 });

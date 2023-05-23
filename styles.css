@@ -51,6 +51,26 @@ body {
     border: black 2px solid;
 }
 
+.bloque_de_informacion_capacidad_de_carga_bateria{
+    position: absolute;
+    width: 160px;
+    padding: 5px;
+
+    /* Posición start*/
+
+    left: 300px;
+    top: 200px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
 .regulador-img{
     width: 400%;
 }
@@ -107,7 +127,143 @@ body {
 
     /* Posición start*/
 
+    left: 300px;
+    top: 400px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
+.bloque_de_información_información_producida{
+    position: absolute;
+    width: 160px;
+    padding: 5px;
+
+    /* Posición start*/
+
     left: 600px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
+.info_corriente_producida_panel_solar{
+    border-radius: 20px;
+    width: 70px;
+    text-align: center;
+    border: black 2px dashed;
+    background-color: white;
+}
+
+.hr{
+    border-color: black;
+}
+
+.bloque_de_información_potencia_electrica_generada{
+    position: absolute;
+    width: 160px;
+    padding: 5px;
+
+    /* Posición start*/
+
+    left: 500px;
+    top: 200px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
+.info_potencia_electrica_generada_panel_solar{
+    border-radius: 20px;
+    width: 70px;
+    text-align: center;
+    border: black 2px dashed;
+    background-color: white;
+}
+
+.info_capacidad_de_carga_bateria{
+    border-radius: 20px;
+    width: 70px;
+    text-align: center;
+    border: black 2px dashed;
+    background-color: white;
+}
+
+.bloque_de_informacion_tiempo_de_carga_bateria{
+    position: absolute;
+    width: 160px;
+    padding: 5px;
+
+    /* Posición start*/
+
+    left: 500px;
+    top: 400px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
+.info_tiempo_de_carga_bateria{
+    border-radius: 20px;
+    width: 70px;
+    text-align: center;
+    border: black 2px dashed;
+    background-color: white;
+}
+
+.bloque_de_informacion_tiempo_de_exposicion_al_sol{
+    position: absolute;
+    width: 160px;
+    padding: 5px;
+
+    /* Posición start*/
+
+    left: 700px;
+    top: 400px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
+.bloque_de_informacion_capacidad_de_bateria{
+    position: absolute;
+    width: 160px;
+    padding: 5px;
+
+    /* Posición start*/
+
+    left: 000px;
+    top: 400px;
 
     /* Posición end */
 
