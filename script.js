@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // imagenes start
     const regulador_de_voltaje = document.getElementById('regulador-img');
     const panel_solar = document.getElementById('panel_solar_img');
+    const sol_img = document.getElementById('img-sun');
 // imagenes end
 
 // Información start
@@ -60,8 +61,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const bloque_de_información_potencia_electrica_generada = document.getElementById('info_potencia_electrica_generada_panel_solar');
     const bloque_de_informacion_tiempo_de_carga_bateria = document.getElementById('info_tiempo_de_carga_bateria');
     const bloque_de_informacion_capacidad_de_carga_bateria = document.getElementById('info_capacidad_de_carga_bateria');
+// Información end
 
     class Simulador {
+
+        //imgs
+
+        update_all_imgs(){
+            this.actualizar_imagen_sol();
+        }
+
+        actualizar_imagen_sol(){
+            if(this.radiacion == 0){
+                sol_img.style = "filter: grayscale(100%);"
+                return;
+            }
+            // console.log("radiacion: " + radiacion)
+            var porcentaje = 1/2000;
+            porcentaje = porcentaje * this.radiacion;
+            sol_img.style = "filter: drop-shadow(5px 5px 5px rgba(255, 0, 0," + porcentaje +"));"
+            // console.log("porcentaje: " + porcentaje)
+        }
         
         constructor(){
             this.radiacion = 0; // 0 - 2000 max
@@ -81,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Información start
 
         update_all(){
+            this.update_all_imgs();
             this.potencia_electrica_generada_update();
             this.tiempo_de_carga_bateria_update();
             this.energia_generada_update();

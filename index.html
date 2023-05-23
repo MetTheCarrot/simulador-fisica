@@ -10,6 +10,10 @@
 	<script src="script.js"></script>
 </head>
 <body>
+
+    <!-- solecito -->
+    <img class="img-sun" id="img-sun" style="filter: grayscale(100%);" src="./static/sun.webp" alt="sol">
+
     <!-- radiacion start  -->
     <div class="bloque_de_información_radiacion">
         <label class="text">Radiación solar<br></label>
@@ -88,7 +92,7 @@
 
     <!-- tiempo de exposicion al sol start -->
     <div class="bloque_de_informacion_tiempo_de_exposicion_al_sol">
-        <label>Tiempo de exposición al sol<br></label>
+        <label>Tiempo de exposición del sol<br></label>
         <div>
             <form>
                 <input class="input_numeros" type="number" id="tiempo_de_exposicion_al_sol_caja" value="0" max="24" min="0" step="0.1">h
@@ -102,19 +106,19 @@
     <!-- Información start -->
 
     <div class="bloque_de_información_información_producida">
-        <label>Potencia eléctrica producida por un panel solar<br></label>
+        <label>Potencia eléctrica producida por el panel solar<br></label>
         <hr class="hr">
         <input disabled type="text" class="info_corriente_producida_panel_solar" id="info_corriente_producida_panel_solar" value="0.00 V">
     </div>
 
     <div class="bloque_de_información_potencia_electrica_generada">
-        <label>Energía eléctrica generada por un panel solar<br></label>
+        <label>Energía eléctrica generada por el panel solar<br></label>
         <hr class="hr">
         <input disabled type="text" class="info_potencia_electrica_generada_panel_solar"  id="info_potencia_electrica_generada_panel_solar" value="0.00 W">
     </div>
 
     <div class="bloque_de_informacion_tiempo_de_carga_bateria">
-        <label>Tiempo de carga de la bateria<br></label>
+        <label>Tiempo de carga de la bateria total<br></label>
         <hr class="hr">
         <input disabled type="text" class="info_tiempo_de_carga_bateria" id="info_tiempo_de_carga_bateria" value="0.00 h">
     </div>

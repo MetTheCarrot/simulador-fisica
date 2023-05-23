@@ -101,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		sol_img.style = "filter: drop-shadow(5px 5px 5px rgba(255, 0, 0," + porcentaje +"));"
 		rayos_img.style = "transform:rotate(-40deg); filter: drop-shadow(5px 5px 5px rgba(251, 116, 54," + porcentaje +"));"
 		// console.log("porcentaje: " + porcentaje)
-
 	}
 
 	const eficienciaInfoEvent = () => {
