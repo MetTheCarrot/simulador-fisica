@@ -72,3 +72,49 @@ body {
     left: 52px;
     text-align: center;
 }
+
+.panel_solar_img{
+    left: 700px;
+    position: absolute;
+    width: 20%; 
+    /* 20 a 25 */
+    top: 100px;
+}
+
+.bloque_de_información_selector_de_voltaje{
+    position: absolute;
+    width: 160px;
+    padding: 5px;
+
+    /* Posición start*/
+
+    left: 400px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
+.bloque_de_información_area_panel_solar{
+    position: absolute;
+    width: 160px;
+    padding: 5px;
+
+    /* Posición start*/
+
+    left: 600px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}

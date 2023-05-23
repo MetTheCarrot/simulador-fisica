@@ -38,6 +38,22 @@
     </div>
     <!-- Eficiencia solar end -->
 
+    <!-- area del panel solar start-->
+    <div class="bloque_de_información_area_panel_solar">
+        <label>Área del panel solar<br></label>
+        <div>
+            <form>
+                <input class="input_numeros" type="number" id="area_panel_solar_caja" value="1" step="0.1">m²
+            </form>
+        </div>
+    <form>
+        <input type="range" id="area_panel_solar_barra" min="1" max="1.7" step="0.1" value="1">
+    </form>
+    </div>
+    <!-- area del panel solar end -->
+
+    <img class="panel_solar_img" id="panel_solar_img" src="./static/panel solar.png" style="width: 20%; filter: grayscale(100%)" alt="panel solar">
+
     <!-- Selector de voltaje de bateria start -->
     <div class="bloque_de_información_selector_de_voltaje">
         <label>Voltaje del regulador de la energía solar<br></label>
@@ -49,11 +65,20 @@
     </div>
 
     <div class="selector_de_voltaje_imagen_formulario">
-        <img class="regulador-img" src="./static/regulador.webp" alt="regulador de enegía solar">
+        <img class="regulador-img" src="./static/regulador.webp" id="regulador-img" alt="regulador de enegía solar">
         <form>
             <input class="caja_voltaje_input" type="number" id="selector_de_voltaje_caja" value="0">
         </form>
     </div>
     <!-- Selector de voltaje de bateria end -->
+
+    
+
+    <!-- Información producida por el panel solar start -->
+
+    <div class="bloque_de_información_información_producida">
+        <label>Información producida por el panel solar<br></label>
+        <span>xd</span>
+    </div>
 </body>
 </html>
