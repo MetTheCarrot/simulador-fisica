@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const regulador_de_voltaje = document.getElementById('regulador-img');
     const panel_solar = document.getElementById('panel_solar_img');
     const sol_img = document.getElementById('img-sun');
+    const rayos_sol = document.getElementById('rayos-img');
+    const rayos2_sol = document.getElementById('rayos2-img');
 // imagenes end
 
 // Información start
@@ -69,6 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         update_all_imgs(){
             this.actualizar_imagen_sol();
+            this.eficiencia_solar_actualizar_imagen();
+            this.area_panel_solar_actualizar_imagen();
+            this.voltaje_actualizar_imagen();
         }
 
         actualizar_imagen_sol(){
@@ -80,7 +85,26 @@ document.addEventListener('DOMContentLoaded', () => {
             var porcentaje = 1/2000;
             porcentaje = porcentaje * this.radiacion;
             sol_img.style = "filter: drop-shadow(5px 5px 5px rgba(255, 0, 0," + porcentaje +"));"
+            rayos_sol.style.opacity = porcentaje;
+            rayos2_sol.style.opacity = porcentaje;
             // console.log("porcentaje: " + porcentaje)
+        }
+
+        eficiencia_solar_actualizar_imagen(){
+            // panel_solar.style = "filter: grayscale(" + (100 - this.eficiencia_solar) + "%);"
+            panel_solar.style.filter = "grayscale(" + (100 - this.eficiencia_solar * 100) + "%)";
+        }
+
+        area_panel_solar_actualizar_imagen(){
+            //cambia el tamñao de la imagen de 20 a 25%
+            // panel_solar.style = "width: " + calculateScale(this.area_panel_solar) + "%";
+            panel_solar.style.width = calculateScale(this.area_panel_solar) + "%";
+        }
+
+        voltaje_actualizar_imagen(){
+            var porcentaje = 1/29;
+            porcentaje *= this.voltaje;
+            regulador_de_voltaje.style.filter = "drop-shadow(5px 5px 5px rgba(255, 255, 0," + porcentaje +"))";
         }
         
         constructor(){
@@ -141,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         tiempo_de_exposicion_al_sol_update_caja(){
-            plantilla_texto(tiempo_de_exposicion_al_sol_caja, tiempo_de_exposicion_al_sol_barra, 24);
+            plantilla_texto(tiempo_de_exposicion_al_sol_caja, tiempo_de_exposicion_al_sol_barra, 12);
             this.tiempo_exposicion_sol = tiempo_de_exposicion_al_sol_caja.value;
             this.update_all();
         }
@@ -192,10 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.update_all();
         }
 
-        eficiencia_solar_actualizar_imagen(){
-            panel_solar.style = "filter: grayscale(" + (100 - this.eficiencia_solar) + "%);"
-        }
-
         // eficiencia solar end
 
         // area panel solar start
@@ -214,12 +234,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.update_all();
         }
 
-        area_panel_solar_actualizar_imagen(){
-            //cambia el tamñao de la imagen de 20 a 25%
-            console.log("escala: " + calculateScale(this.area_panel_solar) + "%");
-            panel_solar.style = "width: " + calculateScale(this.area_panel_solar) + "%";
-        }
-
         // voltaje start
 
         voltaje_update_barra(){
@@ -234,12 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
             this.voltaje = voltaje_caja.value;
             this.voltaje_actualizar_imagen();
             this.update_all();
-        }
-
-        voltaje_actualizar_imagen(){
-            var porcentaje = 1/29;
-            porcentaje *= this.voltaje;
-            regulador_de_voltaje.style.filter = "drop-shadow(5px 5px 5px rgba(255, 255, 0," + porcentaje +"))";
         }
 
         // voltaje end

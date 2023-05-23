@@ -21,6 +21,19 @@ body {
     left: 60px;
 }
 
+.rayos-img{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.rayos2-img{
+    position: absolute;
+    top: 20px;
+    left: -50px;
+    rotate: -35deg;
+}
+
 .input_numeros{
     width: 50px;
     text-align: center;
@@ -109,7 +122,7 @@ body {
 }
 
 .panel_solar_img{
-    left: 250px;
+    left: 270px;
     position: absolute;
     width: 20%;  /* 20 a 25 */
     top: 391px;

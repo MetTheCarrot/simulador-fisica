@@ -11,8 +11,12 @@
 </head>
 <body>
 
+    <img src="./static/rayos2.png" alt="rayos de sol" class="rayos2-img" style="opacity: 0;" id="rayos2-img">
     <!-- solecito -->
     <img class="img-sun" id="img-sun" style="filter: grayscale(100%);" src="./static/sun.webp" alt="sol">
+
+    <!-- rayos del sol -->
+    <img src="./static/pngegg.png" alt="rayos de sol" class="rayos-img" style="opacity: 0;"  id="rayos-img">
 
     <!-- radiacion start  -->
     <div class="bloque_de_información_radiacion">
@@ -95,11 +99,11 @@
         <label>Tiempo de exposición del sol<br></label>
         <div>
             <form>
-                <input class="input_numeros" type="number" id="tiempo_de_exposicion_al_sol_caja" value="0" max="24" min="0" step="0.1">h
+                <input class="input_numeros" type="number" id="tiempo_de_exposicion_al_sol_caja" value="0" max="12" min="0" step="0.1">h
             </form>
         </div>
         <form>
-            <input type="range" id="tiempo_de_exposicion_al_sol_barra" min="0" max="24" step="0.1" value="0">
+            <input type="range" id="tiempo_de_exposicion_al_sol_barra" min="0" max="12" step="0.1" value="0">
         </form>
     </div>
 
