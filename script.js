@@ -65,7 +65,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const bloque_de_informacion_capacidad_de_carga_bateria = document.getElementById('info_capacidad_de_carga_bateria');
 // Información end
 
+// celu start
+    const select_celu = document.getElementById('select-celu');
+    const img_celu = document.getElementById('phone-img');
+
+    const bateria_celu = document.getElementById('bateria-celu');
+    const energia_necesaria = document.getElementById('voltaje-celu');
+    const tiempo_de_carga = document.getElementById('tiempo-carga-celu');
+// celu end
+
     class Simulador {
+
+        // celu
+
+        actualizar_informacion(){
+            bateria_celu.value = this.bateria_dispositivo + " mAh";
+            energia_necesaria.value = this.carga_dispositivo + " V";
+
+            let capacidadBateriaCelular = (this.bateria_dispositivo * this.carga_dispositivo) / 1000; // mAh
+            let energia_utilizada = Math.min(this.potencia_electrica_generada, this.capacidad_carga_bateria * this.voltaje); // Wh
+            let tiempoCarga = capacidadBateriaCelular / (energia_utilizada / this.capacidad_bateria)
+
+            console.log("capacidadBateriaCelular: " + capacidadBateriaCelular)
+            console.log("energia_utilizada: " + energia_utilizada)
+            console.log("tiempoCarga: " + tiempoCarga)
+            tiempo_de_carga.value = tiempoCarga.toFixed(2) + " h";
+        }
+
+        actualizar_dispositivo(){
+            const text = select_celu.options[select_celu.selectedIndex].text;
+            console.log("Celular: " + text + " seleccionado");
+            switch(text){
+                case "SAMSUNG A30":
+                    this.dispotivo = "SAMSUNG_A30";
+                    this.bateria_dispositivo = 4000; // mAh
+                    this.carga_dispositivo = 15; // v
+                    img_celu.src = "./imgs/samsung130.png";
+                    break;
+                case "IPHONE X":
+                    this.dispotivo = "iPhone_X";
+                    this.bateria_dispositivo = 2716; // mAh
+                    this.carga_dispositivo = 5; // v
+                    img_celu.src = "./imgs/iphonex.png";
+                    break;
+                case "GALAXY NOTE 10":
+                    this.dispotivo = "Galaxy_Note10";
+                    this.bateria_dispositivo = 3500; // mAh
+                    this.carga_dispositivo = 9; // v
+                    img_celu.src = "./imgs/note.png";
+            }
+            console.log("bateria: " + this.bateria_dispositivo + " mAh");
+            console.log("carga: " + this.carga_dispositivo + " v");
+            this.actualizar_informacion();
+        }
 
         //imgs
 
@@ -120,6 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
             this.energia_generada = 0;
             this.tiempo_de_carga_bateria = 0; 
             this.capacidad_carga_bateria = 0;
+
+            //celu default
+            this.dispotivo = "SAMSUNG_A30";
+            this.bateria_dispositivo = 4000; // mAh
+            this.carga_dispositivo = 15; // mAh
         }
 
         // Información start
@@ -130,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.tiempo_de_carga_bateria_update();
             this.energia_generada_update();
             this.tiempo_de_capacidad_bateria_update();
+            this.actualizar_dispositivo();
         }
 
         potencia_electrica_generada_update(){
@@ -272,5 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tiempo_de_exposicion_al_sol_barra.addEventListener('input', instancia.tiempo_de_exposicion_al_sol_update_barra.bind(instancia));
     tiempo_de_exposicion_al_sol_caja.addEventListener('input', instancia.tiempo_de_exposicion_al_sol_update_caja.bind(instancia));
+
+    select_celu.addEventListener('change', instancia.actualizar_dispositivo.bind(instancia));
 
 });

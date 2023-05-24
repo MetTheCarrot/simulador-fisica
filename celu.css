@@ -1,0 +1,109 @@
+.box{
+    position: absolute;
+    width: 580px;
+    padding: 5px;
+
+    /* Posición start*/
+
+    top: 21px;
+    left: 700px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+    background-color: white;
+}
+
+.phone-img{
+    width: 20%;
+    float: left;
+}
+
+.info-bateria-celu{
+    position: absolute;
+    width: 160px;
+    padding: 10px;
+
+    /* Posición start*/
+
+    left: 140px;
+    top: 80px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
+.bateria-celu{
+    border-radius: 20px;
+    width: 70px;
+    text-align: center;
+    border: black 2px dashed;
+    background-color: white;
+}
+
+.info-voltaje-celu{
+    position: absolute;
+    width: 400px;
+    padding: 5px;
+
+    /* Posición start*/
+
+    left: 140px;
+    top: 170px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
+.voltaje-celu{
+    border-radius: 20px;
+    width: 70px;
+    text-align: center;
+    border: black 2px dashed;
+    background-color: white;
+}
+
+.tiempo-de-carga-celu{
+    position: absolute;
+    width: 200px;
+    padding: 10px;
+
+    /* Posición start*/
+
+    left: 330px;
+    top: 80px;
+
+    /* Posición end */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
+.tiempo-carga-celu{
+    border-radius: 20px;
+    width: 70px;
+    text-align: center;
+    border: black 2px dashed;
+    background-color: white;
+}
