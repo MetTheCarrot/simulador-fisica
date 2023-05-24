@@ -104,19 +104,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.dispotivo = "SAMSUNG_A30";
                     this.bateria_dispositivo = 4000; // mAh
                     this.carga_dispositivo = 15; // v
-                    img_celu.src = "./imgs/samsung130.png";
+                    img_celu.src = "./imgs/samsung130.webp";
                     break;
                 case "IPHONE X":
                     this.dispotivo = "iPhone_X";
                     this.bateria_dispositivo = 2716; // mAh
                     this.carga_dispositivo = 5; // v
-                    img_celu.src = "./imgs/iphonex.png";
+                    img_celu.src = "./imgs/iphonex.webp";
                     break;
                 case "GALAXY NOTE 10":
                     this.dispotivo = "Galaxy_Note10";
                     this.bateria_dispositivo = 3500; // mAh
                     this.carga_dispositivo = 9; // v
-                    img_celu.src = "./imgs/note.png";
+                    img_celu.src = "./imgs/note.webp";
             }
             console.log("bateria: " + this.bateria_dispositivo + " mAh");
             console.log("carga: " + this.carga_dispositivo + " v");
