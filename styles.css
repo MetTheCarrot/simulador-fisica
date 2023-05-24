@@ -6,6 +6,7 @@ body {
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+    overflow: hidden;
     /*Free Faux Stones SVG provided by SVGeez.com - CC 4.0 License - © 2019 Megan Young */
     /* background-color:rgba(198, 198, 198, 0.5);
     fill:rgb(255, 255, 255); */
