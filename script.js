@@ -89,7 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("capacidadBateriaCelular: " + capacidadBateriaCelular)
             console.log("energia_utilizada: " + energia_utilizada)
             console.log("tiempoCarga: " + tiempoCarga)
-            tiempo_de_carga.value = tiempoCarga.toFixed(2) + " h";
+            if(isNaN(tiempoCarga) || tiempoCarga == Infinity){
+                tiempo_de_carga.value = "No cargable";
+            } else {
+                tiempo_de_carga.value = tiempoCarga.toFixed(2) + " h";
+            }
         }
 
         actualizar_dispositivo(){
