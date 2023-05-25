@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             // console.log("radiacion: " + radiacion)
-            var porcentaje = 1/2000;
+            var porcentaje = 1/1367;
             porcentaje = porcentaje * this.radiacion;
             sol_img.style = "filter: drop-shadow(5px 5px 5px rgba(255, 0, 0," + porcentaje +"));"
             rayos_sol.style.opacity = porcentaje;
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         constructor(){
-            this.radiacion = 0; // 0 - 2000 max
+            this.radiacion = 0; // 0 - 1367 max
             this.eficiencia_solar = 0.00; // 0 - 100 max
             this.voltaje = 0; // 0 - 29 max
             this.area_panel_solar = 1; // 1 - 1.7 max
