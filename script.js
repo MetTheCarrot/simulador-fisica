@@ -19,7 +19,7 @@ function plantilla_texto(caja_element = HTMLElement, barra_element = HTMLElement
 }
 
 function calculateScale(panelSize) {
-        const baseSize = 1; // 1m² base size
+        const baseSize = 1; // 1m² base size xd
         const maxSize = 1.7; // the maximum size in meters
         const minScale = 20; // the minimum scale factor
         const maxScale = 25; // the maximum scale factor
